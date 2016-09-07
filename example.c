@@ -1,28 +1,28 @@
 #include <stdlib.h>
 #include "c_utest.h"
 
-void a_success() {
+void one_is_one_and_not_two() {
   ASSERT_EQUAL_INTS(1, 1);
+  ASSERT_DIFFN_INTS(1, 0);
 }
 
-void a_failure() {
+void zero_is_truthy() {
   ASSERT(0);
 }
 
-void another_failure() {
+void one_is_zero() {
   ASSERT_EQUAL_INTS(1, 0);
 }
 
-void yet_another_failure() {
-  char * a = malloc(sizeof(char));
+void malloc_returns_null() {
+  char* a = malloc(sizeof(char));
   ASSERT_EQUAL_PTRS(a, NULL);
 }
 
 int main(void) {
-  TEST(a_success);
-  TEST(a_failure);
-  TEST(another_failure);
-  TEST(yet_another_failure);
+  TEST_THAT(one_is_one_and_not_two);
+  TEST_THAT(zero_is_truthy);
+  TEST_THAT(one_is_zero);
+  TEST_THAT(malloc_returns_null);
   RUN_TESTS();
-  return 0;
 }
