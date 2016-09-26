@@ -33,11 +33,22 @@ void malloc_returns_null() {
   ASSERT_EQUAL_PTRS(a, NULL);
 }
 
+void cat_is_dog() {
+  ASSERT_EQUAL_STRS("cat", "dog");
+}
+
+void actually_cat_is_cat_not_dog() {
+  ASSERT_EQUAL_STRS("cat", "cat");
+  ASSERT_DIFFN_STRS("cat", "dog");
+}
+
 int main(void) {
   TEST_THAT(one_is_one_and_not_two);
   TEST_THAT(zero_is_truthy);
   TEST_THAT(one_is_zero);
   TEST_THAT(malloc_returns_null);
+  TEST_THAT(cat_is_dog);
+  TEST_THAT(actually_cat_is_cat_not_dog);
   RUN_TESTS();
 }
 ```
@@ -51,9 +62,9 @@ gcc example.c && ./a.out
 Should produce (a colorized version of) the following output:
 
 ```
-About to run 4 tests...
+About to run 6 tests...
 
-.FFF
+.FFFF.
 
 TEST_THAT(zero_is_truthy) failed with:
 	assertion error
@@ -62,7 +73,10 @@ TEST_THAT(one_is_zero) failed with:
 	expected 1 to equal 0
 
 TEST_THAT(malloc_returns_null) failed with:
-	expected 0x7fa03a401a80 to equal 0x0
+	expected 0x7f9099403270 to equal 0x0
 
-Total failures: 3
+TEST_THAT(cat_is_dog) failed with:
+	expected cat to equal dog
+
+Total failures: 4
 ```

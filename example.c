@@ -19,10 +19,21 @@ void malloc_returns_null() {
   ASSERT_EQUAL_PTRS(a, NULL);
 }
 
+void cat_is_dog() {
+  ASSERT_EQUAL_STRS("cat", "dog");
+}
+
+void actually_cat_is_cat_not_dog() {
+  ASSERT_EQUAL_STRS("cat", "cat");
+  ASSERT_DIFFN_STRS("cat", "dog");
+}
+
 int main(void) {
   TEST_THAT(one_is_one_and_not_two);
   TEST_THAT(zero_is_truthy);
   TEST_THAT(one_is_zero);
   TEST_THAT(malloc_returns_null);
+  TEST_THAT(cat_is_dog);
+  TEST_THAT(actually_cat_is_cat_not_dog);
   RUN_TESTS();
 }
