@@ -66,16 +66,16 @@ About to run 6 tests...
 
 .FFFF.
 
-TEST_THAT(zero_is_truthy) failed with:
+zero_is_truthy failed at line 10 with:
 	assertion error
 
-TEST_THAT(one_is_zero) failed with:
+one_is_zero failed at line 14 with:
 	expected 1 to equal 0
 
-TEST_THAT(malloc_returns_null) failed with:
-	expected 0x7f9099403270 to equal 0x0
+malloc_returns_null failed at line 19 with:
+	expected 0x7ffebac03270 to equal 0x0
 
-TEST_THAT(cat_is_dog) failed with:
+cat_is_dog failed at line 23 with:
 	expected cat to equal dog
 
 Total failures: 4
