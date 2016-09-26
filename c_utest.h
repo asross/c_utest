@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
-#define MAX_TEST_COUNT 100
-#define MAX_NAME_CHARS 256
+#define MAX_TEST_COUNT 1024
+#define MAX_NAME_CHARS 1024
 #define MAX_MSG_CHARS 1024
 #define KRED  "\x1B[31m"
 #define KGRN  "\x1B[32m"
@@ -51,16 +51,12 @@ static int _current_test;
 } while(0)
 
 #define ASSERT(a) if (!a) FAIL_WITH("assertion error");
-
 #define ASSERT_EQUAL_INTS(a, b) if (a != b) FAIL_WITH("expected %d to equal %d", a, b);
 #define ASSERT_DIFFN_INTS(a, b) if (a == b) FAIL_WITH("expected %d NOT to equal %d", a, b);
-
 #define ASSERT_EQUAL_PTRS(a, b) if (a != b) FAIL_WITH("expected %p to equal %p", a, b);
 #define ASSERT_DIFFN_PTRS(a, b) if (a == b) FAIL_WITH("expected %p NOT to equal %p", a, b);
-
 #define ASSERT_EQUAL_STRS(a, b) if ( strcmp(a, b)) FAIL_WITH("expected %s to equal %s", a, b);
 #define ASSERT_DIFFN_STRS(a, b) if (!strcmp(a, b)) FAIL_WITH("expected %s NOT to equal %s", a, b);
-
 #define TEST_THAT(name) do {\
   _test_funcs[_test_count] = name;\
   strcpy(_test_names[_test_count], #name);\
