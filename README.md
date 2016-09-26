@@ -59,24 +59,6 @@ If you check it out and run:
 gcc example.c && ./a.out
 ```
 
-Should produce (a colorized version of) the following output:
+Should produce the following output:
 
-```
-About to run 6 tests...
-
-.FFFF.
-
-zero_is_truthy failed at line 10 with:
-	assertion error
-
-one_is_zero failed at line 14 with:
-	expected 1 to equal 0
-
-malloc_returns_null failed at line 19 with:
-	expected 0x7ffebac03270 to equal 0x0
-
-cat_is_dog failed at line 23 with:
-	expected cat to equal dog
-
-Total failures: 4
-```
+![test output](test-output.png)
