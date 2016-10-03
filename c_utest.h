@@ -50,11 +50,11 @@ static int _current_test;
   return;\
 } while(0)
 
-#define ASSERT(a) if (!a) FAIL_WITH("assertion error");
+#define ASSERT(a) if (!(a)) FAIL_WITH("assertion error: %s was not truthy", #a);
 #define ASSERT_EQUAL_INTS(a, b) if (a != b) FAIL_WITH("expected %d to equal %d", a, b);
 #define ASSERT_DIFFN_INTS(a, b) if (a == b) FAIL_WITH("expected %d NOT to equal %d", a, b);
-#define ASSERT_EQUAL_PTRS(a, b) if (a != b) FAIL_WITH("expected %p to equal %p", a, b);
-#define ASSERT_DIFFN_PTRS(a, b) if (a == b) FAIL_WITH("expected %p NOT to equal %p", a, b);
+#define ASSERT_EQUAL_PTRS(a, b) if (a != b) FAIL_WITH("expected %p to equal %p", (void*)a, (void*)b);
+#define ASSERT_DIFFN_PTRS(a, b) if (a == b) FAIL_WITH("expected %p NOT to equal %p", (void*)a, (void*)b);
 #define ASSERT_EQUAL_STRS(a, b) if ( strcmp(a, b)) FAIL_WITH("expected %s to equal %s", a, b);
 #define ASSERT_DIFFN_STRS(a, b) if (!strcmp(a, b)) FAIL_WITH("expected %s NOT to equal %s", a, b);
 #define TEST_THAT(name) do {\
