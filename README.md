@@ -62,3 +62,7 @@ gcc example.c && ./a.out
 Should produce the following output:
 
 ![test output](test-output.png)
+
+## License
+
+[MIT](http://opensource.org/licenses/MIT)
