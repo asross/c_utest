@@ -44,7 +44,7 @@ static int _current_test;
   _failed_tests[_fail_count] = _current_test;\
   _failed_lines[_fail_count] = __LINE__;\
   char _failure_msg[MAX_MSG_CHARS];\
-  sprintf(_failure_msg, ##__VA_ARGS__);\
+  sprintf(_failure_msg, __VA_ARGS__);\
   strcpy(_failure_msgs[_fail_count], _failure_msg);\
   _fail_count++;\
   return;\
